@@ -5,12 +5,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <meta charset="utf-8" />
 
 </head>
 
 <body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sorting Algorithm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Visualizer<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-github fa-lg"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SETTINGS -->
+    <div class="row align-items-end m-2">
+        <div class="form-group col-3">
+            <label for="exampleSelect1" class="col-form-label">Example select</label>
+            <select class="form-control" id="exampleSelect1">
+                <option>Quick Sort</option>
+                <option>Bubble Sort</option>
+                <option>Merge Sort</option>
+            </select>
+        </div>
+        <div class="form-group col-3">
+            <label class="col-form-label" for="inputDefault">Data Size</label>
+            <input type="text" class="form-control" placeholder="Default input" id="inputDefault">
+        </div>
+        <div class="form-group col-1">
+            <button id="reset" class="btn btn-primary">Go</button>
+        </div>
+    </div>
+
+    <!-- Canavas -->
+    <div id="canvas">
+
+    </div>
     <script src="sketch.js"></script>
 </body>
 

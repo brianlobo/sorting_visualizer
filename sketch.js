@@ -2,8 +2,18 @@ let i = 0;
 // width of rects
 let w = 10;
 
+let reset = document.getElementById('reset');
+
+reset.addEventListener("click", function() {
+    setup();
+    draw();
+});
+
 function setup() {
-    createCanvas(1100, 400);
+    let width = document.getElementById('canvas').offsetWidth;
+    let height = document.getElementById('canvas').offsetHeight;
+    let canvas = createCanvas(width, height);
+    canvas.parent('canvas');
     values = new Array(floor(width / w));
     for (let i = 0; i < values.length; i++) {
         values[i] = random(height);

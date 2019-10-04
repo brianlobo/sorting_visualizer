@@ -1,7 +1,27 @@
+body {
+  height: 100vh;
+
+}
+
 html, body {
   margin: 0;
   padding: 0;
 }
 canvas {
   display: block;
+}
+
+/* .test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.inline {
+  display: inline-block;
+}
+
+#canvas {
+  height: 50%;
+  width: 100%;
 }
