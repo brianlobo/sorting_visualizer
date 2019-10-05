@@ -42,8 +42,8 @@
         <div class="form-group col-lg-3 col-md-5">
             <label for="exampleSelect1" class="col-form-label">Example select</label>
             <select class="form-control" id="sortType">
-                <option value="1">Quick Sort</option>
-                <option value="2">Bubble Sort</option>
+                <option value="0">Quick Sort</option>
+                <option value="1">Bubble Sort</option>
                 <option>Merge Sort</option>
             </select>
         </div>
@@ -60,7 +60,127 @@
     <div id="canvas">
 
     </div>
+    <div class="row m-3">
+        <div class="col-lg-6">
+            <div class="sort-gists" id="quick-sort-gist">
+                <!-- Quick sort gist -->
+                <script src="https://gist.github.com/brianlobo/f9ee532891f5eb891074b1a22a913395.js"></script>
+            </div>
+
+            <div class="sort-gists d-none" id="bubble-sort-gist">
+                <!-- Bubble sort gist -->
+                <script src="https://gist.github.com/brianlobo/a7a9d0616c454c2d048d486408f6221d.js"></script>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card border-dark sort-info" id="quick-sort-info">
+                <div class="card-header">Quick Sort</div>
+                <div class="card-body">
+                    <!-- <h4 class="card-title">Bubble Sort</h4> -->
+                    <p class="card-text">
+                        <strong>
+                            Worst and Average Case Time Complexity:
+                        </strong>
+                        O(n*n). Worst case occurs when array is reverse sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Best Case Time Complexity:
+                        </strong>
+                        O(n). Best case occurs when array is already sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Auxiliary Space:
+                        </strong>
+                        O(1)
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Boundary Cases:
+                        </strong>
+                        Bubble sort takes minimum time (Order of n) when elements are already sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Sorting In Place:
+                        </strong>
+                        Yes
+                    </p>
+                    <p class="card-text">
+                        Due to its simplicity, bubble sort is often used to introduce the concept of a sorting
+                        algorithm.
+                        <br>
+                        In computer graphics it is popular for its capability 
+                        to detect a very small error (like swap of just two elements) in
+                        almost-sorted arrays and fix it with just linear complexity
+                            (2n). For example, it is used in a polygon filling
+                        algorithm, where bounding lines are sorted by their x 
+                        coordinate at a specific scan line (a line parallel to x axis) and
+                        with incrementing y their order changes (two elements are swapped)
+                            only at intersections of two lines (Source:
+                            <a href="https://en.wikipedia.org/wiki/Bubble_sort#In_practice"
+                                target="_blank">Wikipedia</a>
+                            )
+                    </p>
+                </div>
+            </div>
+            <div class="card border-dark sort-info d-none" id="bubble-sort-info">
+                <div class="card-header">Bubble Sort</div>
+                <div class="card-body">
+                    <!-- <h4 class="card-title">Bubble Sort</h4> -->
+                    <p class="card-text">
+                        <strong>
+                            Worst and Average Case Time Complexity:
+                        </strong>
+                        O(n*n). Worst case occurs when array is reverse sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Best Case Time Complexity:
+                        </strong>
+                        O(n). Best case occurs when array is already sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Auxiliary Space:
+                        </strong>
+                        O(1)
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Boundary Cases:
+                        </strong>
+                        Bubble sort takes minimum time (Order of n) when elements are already sorted.
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Sorting In Place:
+                        </strong>
+                        Yes
+                    </p>
+                    <p class="card-text">
+                        Due to its simplicity, bubble sort is often used to introduce the concept of a sorting
+                        algorithm.
+                        <br>
+                        In computer graphics it is popular for its capability 
+                        to detect a very small error (like swap of just two elements) in
+                        almost-sorted arrays and fix it with just linear complexity
+                            (2n). For example, it is used in a polygon filling
+                        algorithm, where bounding lines are sorted by their x 
+                        coordinate at a specific scan line (a line parallel to x axis) and
+                        with incrementing y their order changes (two elements are swapped)
+                            only at intersections of two lines (Source:
+                            <a href="https://en.wikipedia.org/wiki/Bubble_sort#In_practice"
+                                target="_blank">Wikipedia</a>
+                            )
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/sketch.js"></script>
+    <script src="js/jQuery.js"></script>
 </body>
 
 </html>

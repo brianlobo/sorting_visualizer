@@ -10,12 +10,6 @@ canvas {
   display: block;
 }
 
-/* .test {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 .inline {
   display: inline-block;
 }
@@ -24,3 +18,5 @@ canvas {
   height: 50%;
   width: 100%;
 }
+
+

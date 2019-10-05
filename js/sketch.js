@@ -2,7 +2,10 @@ let i = 0;
 let rectWidth;
 let states = [];
 let go = document.getElementById('go');
-
+let gist = [
+    "a7a9d0616c454c2d048d486408f6221d",
+    "f9ee532891f5eb891074b1a22a91339"
+]
 function setup() {
     let numOfRects = document.getElementById('numOfRects').value;
     let width = document.getElementById('canvas').offsetWidth;
@@ -21,9 +24,11 @@ function setup() {
     }
 
     frameRate(100);
-    if (sortType === 1){
+    if (sortType === 0){
+        displayCode('quick');
         quickSort(values, 0, values.length - 1);
-    } else if (sortType === 2) {
+    } else if (sortType === 1) {
+        displayCode('bubble');
         bubbleSort(values);
     }
 }
@@ -116,6 +121,13 @@ async function swapVal(arr, a, b) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function displayCode(typeOfSort){
+    $('.sort-gists').addClass('d-none');
+    $('.sort-info').addClass('d-none');
+    $(`#${typeOfSort}-sort-info`).removeClass('d-none');
+    $(`#${typeOfSort}-sort-gist`).removeClass('d-none');
 }
 
 // Event Listeners //
