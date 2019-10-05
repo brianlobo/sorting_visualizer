@@ -8,6 +8,7 @@ function setup() {
     let width = document.getElementById('canvas').offsetWidth;
     let height = document.getElementById('canvas').offsetHeight;
     let canvas = createCanvas(width, height);
+    let sortType = Number(document.getElementById('sortType').value);
 
     rectWidth = floor(width / numOfRects);
 
@@ -20,7 +21,11 @@ function setup() {
     }
 
     frameRate(100);
-    quickSort(values, 0, values.length - 1);
+    if (sortType === 1){
+        quickSort(values, 0, values.length - 1);
+    } else if (sortType === 2) {
+        bubbleSort(values);
+    }
 }
 
 function draw() {
@@ -36,6 +41,26 @@ function draw() {
             fill(255);
         }
         rect(i * rectWidth, height - values[i], rectWidth, values[i]);
+    }
+}
+
+async function bubbleSort(arr) {
+    let isSorted = false;
+    let end = arr.length - 1;
+
+    while (!isSorted) {
+        isSorted = true;
+        for (let i = 0; i < end; i++) {
+            if (arr[i] > arr[i + 1]) {
+                isSorted = false;
+                states[i] = 0;
+                states[i + 1] = 1;
+                await swapVal(arr, i, i + 1);
+                states[i] = -1;
+                states[i + 1] = -1;
+            }
+        }
+        end--;
     }
 }
 
