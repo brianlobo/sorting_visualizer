@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/darkmode_gist.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <meta charset="utf-8" />
 
@@ -31,11 +32,14 @@
                     <a class="nav-link" href="#">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fab fa-github fa-lg"></i></a>
+                    <a class="nav-link" href="https://github.com/brianlobo/sorting_visualizer" target="_blank">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
+    <!-- END NAV BAR -->
 
     <!-- SETTINGS -->
     <div class="row align-items-end m-2">
@@ -55,12 +59,15 @@
             <button id="go" class="btn btn-primary">Go</button>
         </div>
     </div>
+    <!-- END SETTINGS -->
 
-    <!-- Canavas -->
+    <!-- CANVAS -->
     <div id="canvas">
 
     </div>
+
     <div class="row m-3">
+        <!-- PROGRAMMING GISTS -->
         <div class="col-lg-6">
             <div class="sort-gists" id="quick-sort-gist">
                 <!-- Quick sort gist -->
@@ -72,34 +79,40 @@
                 <script src="https://gist.github.com/brianlobo/a7a9d0616c454c2d048d486408f6221d.js"></script>
             </div>
         </div>
+        <!-- END PROGRAMMING GISTS -->
+
+        <!-- ALGORITHM ANALYISIS -->
         <div class="col-lg-6">
+            <!-- QUICK SORT ANALYSIS -->
             <div class="card border-dark sort-info" id="quick-sort-info">
                 <div class="card-header">Quick Sort</div>
                 <div class="card-body">
-                    <!-- <h4 class="card-title">Bubble Sort</h4> -->
                     <p class="card-text">
                         <strong>
-                            Worst and Average Case Time Complexity:
+                            Worst Case Time Complexity:
                         </strong>
-                        O(n*n). Worst case occurs when array is reverse sorted.
+                        О(n<sup>2</sup>) 
+                        <br>
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Average Case Time Complexity:
+                        </strong>
+                        O(n log n)
                     </p>
                     <p class="card-text">
                         <strong>
                             Best Case Time Complexity:
                         </strong>
-                        O(n). Best case occurs when array is already sorted.
+                        Simple Partition: O(n log n),
+                        <br>
+                        Three-way Partition and Equal Keys: O(n)
                     </p>
                     <p class="card-text">
                         <strong>
                             Auxiliary Space:
                         </strong>
-                        O(1)
-                    </p>
-                    <p class="card-text">
-                        <strong>
-                            Boundary Cases:
-                        </strong>
-                        Bubble sort takes minimum time (Order of n) when elements are already sorted.
+                        O(log n)
                     </p>
                     <p class="card-text">
                         <strong>
@@ -108,38 +121,63 @@
                         Yes
                     </p>
                     <p class="card-text">
-                        Due to its simplicity, bubble sort is often used to introduce the concept of a sorting
-                        algorithm.
+                        &emsp;Quicksort is a divide and conquer algorithm. Quicksort first divides a large array into
+                        two
+                        smaller sub-arrays: the low elements and the high elements. Quicksort can then recursively sort
+                        the sub-arrays. 
+                        <ol>
+                            <li>Pick an element, called a pivot, from the array.</li>
+                            <li>Partitioning: reorder the array so that all elements with values less than the pivot
+                                come
+                                before the pivot, while all elements with values greater than the pivot come after it
+                                (equal
+                                values can go either way). After this partitioning, the pivot is in its final position.
+                                This is
+                                called the partition operation.</li>
+                                <li>Recursively apply the above steps to the sub-array of elements with smaller values
+                                    and
+                                    separately to the sub-array of elements with greater values.</li>
+                        </ol>
+                        &emsp;The pivot selection and partitioning steps can be done in several different ways; the
+                        choice of
+                        specific implementation schemes greatly affects the algorithm's performance.
                         <br>
-                        In computer graphics it is popular for its capability 
-                        to detect a very small error (like swap of just two elements) in
-                        almost-sorted arrays and fix it with just linear complexity
-                            (2n). For example, it is used in a polygon filling
-                        algorithm, where bounding lines are sorted by their x 
-                        coordinate at a specific scan line (a line parallel to x axis) and
-                        with incrementing y their order changes (two elements are swapped)
-                            only at intersections of two lines (Source:
-                            <a href="https://en.wikipedia.org/wiki/Bubble_sort#In_practice"
-                                target="_blank">Wikipedia</a>
+                        (Sources:
+                            <a href="https://en.wikipedia.org/wiki/Quicksort"
+                                target="_blank">Wikipedia</a>, 
+                            <a href="https://www.geeksforgeeks.org/quick-sort/"
+                                target="_blank">GeeksforGeeks</a>
                             )
                     </p>
                 </div>
             </div>
+            <!-- END QUICK SORT ANALYSIS -->
+
+            <!-- BUBBLE SORT ANALYSIS -->
             <div class="card border-dark sort-info d-none" id="bubble-sort-info">
                 <div class="card-header">Bubble Sort</div>
                 <div class="card-body">
-                    <!-- <h4 class="card-title">Bubble Sort</h4> -->
                     <p class="card-text">
                         <strong>
-                            Worst and Average Case Time Complexity:
+                            Worst Case Time Complexity:
                         </strong>
-                        O(n*n). Worst case occurs when array is reverse sorted.
+                        О(n<sup>2</sup>) 
+                        <br>
+                        (Worst case occurs when array is reverse sorted)
+                    </p>
+                    <p class="card-text">
+                        <strong>
+                            Average Case Time Complexity:
+                        </strong>
+                        О(n<sup>2</sup>)
                     </p>
                     <p class="card-text">
                         <strong>
                             Best Case Time Complexity:
                         </strong>
-                        O(n). Best case occurs when array is already sorted.
+                        O(n)
+                        <br>
+                        (Best case occurs when array is already sorted)
                     </p>
                     <p class="card-text">
                         <strong>
@@ -160,24 +198,30 @@
                         Yes
                     </p>
                     <p class="card-text">
-                        Due to its simplicity, bubble sort is often used to introduce the concept of a sorting
+                        &emsp;Due to its simplicity, bubble sort is often used to introduce the concept of a sorting
                         algorithm.
                         <br>
-                        In computer graphics it is popular for its capability 
+                        &emsp;In computer graphics it is popular for its capability
                         to detect a very small error (like swap of just two elements) in
                         almost-sorted arrays and fix it with just linear complexity
                             (2n). For example, it is used in a polygon filling
                         algorithm, where bounding lines are sorted by their x 
                         coordinate at a specific scan line (a line parallel to x axis) and
                         with incrementing y their order changes (two elements are swapped)
-                            only at intersections of two lines (Source:
+                            only at intersections of two lines 
+                            <br>
+                            (Sources:
                             <a href="https://en.wikipedia.org/wiki/Bubble_sort#In_practice"
-                                target="_blank">Wikipedia</a>
+                                target="_blank">Wikipedia</a>, 
+                            <a href="https://www.geeksforgeeks.org/bubble-sort/"
+                                target="_blank">GeeksforGeeks</a>
                             )
                     </p>
                 </div>
             </div>
+            <!-- END BUBBLE SORT ANALYSIS -->
         </div>
+        <!-- ALGORITHM ANALYISIS -->
     </div>
     <script src="js/sketch.js"></script>
     <script src="js/jQuery.js"></script>
