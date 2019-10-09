@@ -49,6 +49,38 @@ function draw() {
     }
 }
 
+function mergeSort(arr, start, end) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    let mid = Math.floor(arr.length / 2);
+    let left = arr.slice(0, mid);
+    let right = arr.slice(mid);
+
+    return merge(
+            mergeSort(left), 
+            mergeSort(right));
+}
+
+function merge(left, right) {
+    let out = [];
+    let lIndex = 0
+    let rIndex = 0;
+
+    while (lIndex < left.length && rIndex < right.length) {
+        if (left[lIndex] < right[rIndex]) {
+            out.push(left[lIndex]);
+            lIndex++;
+        } else {
+            out.push(right[rIndex]);
+            rIndex++;
+        }
+    }
+    
+    return out.concat(left.slice(lIndex)).concat(right.slice(rIndex));
+}
+
 async function bubbleSort(arr) {
     let isSorted = false;
     let end = arr.length - 1;
