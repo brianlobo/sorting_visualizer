@@ -1,6 +1,7 @@
-let i = 0;
 let rectWidth;
 let states = [];
+let hist = [];
+let depth = 0;
 let go = document.getElementById('go');
 let gist = [
     "a7a9d0616c454c2d048d486408f6221d",
@@ -25,60 +26,77 @@ function setup() {
 
     frameRate(100);
     if (sortType === 0){
+        depth = 0
         displayCode('quick');
         quickSort(values, 0, values.length - 1);
     } else if (sortType === 1) {
+        depth = 0
         displayCode('bubble');
         bubbleSort(values);
+    } else if (sortType === 2) {
+        // displayCode('merge');
+        depth = 1;
     }
 }
 
 function draw() {
     background(23);
-
-    for (let i = 0; i < values.length; i++) {
-        stroke(0);
-        if (states[i] == 0) {
-            fill('#E0777D');
-        } else if (states[i] == 1) {
-            fill('#D6FFB7');
-        } else {
+    if (depth > 0) {
+        values = mergeSort(values, depth);
+        depth++;
+        for (let i = 0; i < values.length; i++) {
+            stroke(0);
             fill(255);
+            rect(i * rectWidth, height - values[i], rectWidth, values[i]);
         }
-        rect(i * rectWidth, height - values[i], rectWidth, values[i]);
+    } else {
+        for (let i = 0; i < values.length; i++) {
+            stroke(0);
+            if (states[i] == 0) {
+                fill('#E0777D');
+            } else if (states[i] == 1) {
+                fill('#D6FFB7');
+            } else {
+                fill(255);
+            }
+            rect(i * rectWidth, height - values[i], rectWidth, values[i]);
+        }
     }
 }
 
-function mergeSort(arr, start, end) {
-    if (arr.length <= 1) {
-        return arr;
+// function testFunc() {
+//     values = mergeSort(values, depth);
+//     depth++;
+// }
+
+function mergeSort(a, d) {
+    if (a.length <= 1) {
+        return a;
     }
 
-    let mid = Math.floor(arr.length / 2);
-    let left = arr.slice(0, mid);
-    let right = arr.slice(mid);
-
-    return merge(
-            mergeSort(left), 
-            mergeSort(right));
+    d--;
+    if (d < 1) {
+        console.log(a);
+        return (a);
+    }
+    var mid = Math.round((a.length / 2));
+    var left = a.slice(0, mid);
+    var right = a.slice(mid);
+    let leArr = mergeSort(left, d);
+    let riArr = mergeSort(right, d);
+    return merge(leArr, riArr);
 }
 
 function merge(left, right) {
-    let out = [];
-    let lIndex = 0
-    let rIndex = 0;
-
-    while (lIndex < left.length && rIndex < right.length) {
-        if (left[lIndex] < right[rIndex]) {
-            out.push(left[lIndex]);
-            lIndex++;
+    sorted = [];
+    while (left && left.length > 0 && right && right.length > 0) {
+        if (left[0] <= right[0]) {
+            sorted.push(left.shift());
         } else {
-            out.push(right[rIndex]);
-            rIndex++;
+            sorted.push(right.shift());
         }
-    }
-    
-    return out.concat(left.slice(lIndex)).concat(right.slice(rIndex));
+    }  
+    return sorted.concat(left, right);
 }
 
 async function bubbleSort(arr) {
@@ -151,7 +169,7 @@ async function swapVal(arr, a, b) {
     arr[b] = temp;
 }
 
-function sleep(ms) {
+async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
