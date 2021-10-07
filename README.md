@@ -1,2 +1,2 @@
 # sorting_visualizer
-brianlobo.github.io/sorting_visualizer/
+[Visualizations of different sorting algorithms](https://brianlobo.github.io/sorting_visualizer/)
